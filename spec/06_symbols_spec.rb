@@ -1,7 +1,7 @@
 
 describe "Symbols", "not quite a string, not yet a constant" do
   
-  it "should assignable" do
+  it "should be assignable" do
   
     value = :prince
     value.should eq :prince
@@ -22,7 +22,7 @@ describe "Symbols", "not quite a string, not yet a constant" do
     
   end
   
-  context "when converting to s string" do
+  context "when converting to a string" do
     
     it "should be equal to a string" do
       
@@ -47,9 +47,7 @@ describe "Symbols", "not quite a string, not yet a constant" do
     it "should be equal to the symbol" do
       
       value = "prince"
-      expected_value = :prince
-      
-      value.to_sym.should eq expected_value
+      value.to_sym.should eq :prince
       
     end
     
@@ -65,7 +63,8 @@ describe "Symbols", "not quite a string, not yet a constant" do
         # artist to make it meet the expectations "george_michael"
         
         artist = :george_michael
-        artist.should == "george_michael"
+        artist.to_s.should == "george_michael"  # WAS: artist.should == "george_michael"
+        "#{artist}".should == "george_michael"  # WAS: artist.should == "george_michael"
       end
       
     end

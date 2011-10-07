@@ -62,12 +62,13 @@ Second}
     
   end
   
+  
   context "when created with single quotes" do
     
     it "should be valid" do
       
       word = 'Alfred E. Newman'
-      word.should eq 'Alfred E. Newman'
+      word.should eq "Alfred E. Newman"
       
     end
     
@@ -77,7 +78,6 @@ Second}
       word.should be_kind_of String
       
     end
-    
     
     it "should allow double-quote (\") characters" do
       
@@ -109,6 +109,7 @@ Second}
     
   end
   
+  
   context "when created with the pattern %{ }" do
     
     it "should be a String" do
@@ -117,7 +118,6 @@ Second}
       word.should be_kind_of String
 
     end
-
 
     it "should allow double-quote (\") characters" do
 
@@ -165,24 +165,25 @@ Second}
 
   end
   
+  
   context "failing tests" do
     
     it "should insert the value into the string" do
       
       name = "Old Gregg"
-      'My name is #{name}'.should eq 'My name is Old Gregg'
+      "My name is #{name}".should eq 'My name is Old Gregg'  # WAS: 'My name is #{name}'.should eq 'My name is Old Gregg'
       
     end
     
     it "should perform calculations within the area escaped within the String" do
       
-      "#{1 + 1}".should eq '1 + 1'
+      "#{1 + 1}".should eq "2"  # WAS: "#{1 + 1}".should eq '1 + 1'
       
     end
     
     it "should be equal to each other" do
       
-      "\nDo you like Bailey's".should eq '\nDo you like Bailey\'s'
+      "\\nDo you like Bailey\'s".should eq '\nDo you like Bailey\'s'  # WAS: "\nDo you like Bailey's".should eq '\nDo you like Bailey\'s'
       
     end
     
